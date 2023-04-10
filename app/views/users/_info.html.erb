@@ -9,7 +9,15 @@
 	  <th><%= user.introduction %></th>
   </tr>
 </table>
-　
+
+<!-- ゲストユーザーログイン時、プロフィール編集画面へのボタンを表示させないようにする記述 -->
+<% if user.name != "guestuser" %>
+<div class='row'>
+  <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+</div>
+<% end %>
+<!-- ここまで -->
+
 <div class='row'>
   <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block edit_user_#{user.id}" do %>
     <i class="fas fa-user-cog"></i>
